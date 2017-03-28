@@ -1,0 +1,23 @@
+/*--- Cuadro de selct ---*/
+#home-sec{
+    position: absolute;
+    top: 100px;
+    z-index: 100;
+    .form{
+        width: 70%;
+        padding: 2%;
+        margin-left: 3%;
+        background: $colorPrincipal;
+    }
+    .form-group{
+        width: 90%;
+    }
+    .submit{
+        width: 70%;
+        padding: 1%;
+        margin: 2% 4%;
+        color: $colorPrincipal;
+        background: $colorSecundario;
+        text-align: center;
+    }
+}

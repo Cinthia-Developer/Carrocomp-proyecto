@@ -1,11 +1,3 @@
-* {
-  outline: 1px solid red; }
-
-span {
-  position: absolute;
-  right: 10%;
-  top: 10px; }
-
 /*--- Mapa ---*/
 #map {
   position: absolute;
@@ -13,6 +5,11 @@ span {
   right: 0;
   top: 0;
   bottom: 0; }
+
+span {
+  position: absolute;
+  right: 10%;
+  top: 10px; }
 
 /*--- Cuadro de selct ---*/
 #home-sec {
@@ -34,7 +31,6 @@ span {
     background: #fec56c;
     text-align: center; }
 
-/*--- Cuadro de selct ---*/
 /*--- @media ---*/
 @media screen and (max-width: 768px) {
   h1 {

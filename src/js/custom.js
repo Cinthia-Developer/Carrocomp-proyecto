@@ -21,13 +21,13 @@ function createOptions(){
         lista.append(html); 
     }
 }
-//-- Funcion para validar el email (nombre@gmail.com):
+//-- Funcion para obtener el valor de origen:
 function validateOrigen(){
     var origen = $(".origen").val();
     if(origen != 0)
         return true;
 }
-//-- Funcion para validar el email (nombre@gmail.com):
+//-- Funcion para obtener el valor de destino:
 function validateDestino(){
     var destino = $(".destino").val();
     if(destino != 0)
@@ -41,4 +41,4 @@ function validToo(){
 }
 $(".submit").click(validToo);
 
-
+//-- Funcion para validar el boton ----

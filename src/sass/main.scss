@@ -1,47 +1,8 @@
-*{
-    outline: 1px solid red;
-}
-span{
-    position: absolute;
-    right: 10%;
-    top: 10px;
-}
 /*--- Mapa ---*/
 #map{position: absolute; left: 0; right: 0; top: 0; bottom: 0;}
 
-/*--- Cuadro de selct ---*/
-#home-sec{
-    position: absolute;
-    top: 100px;
-    z-index: 100;
-    .form{
-        width: 70%;
-        padding: 2%;
-        margin-left: 3%;
-        background: white;
-    }
-    .form-group{
-        width: 90%;
-    }
-    .submit{
-        width: 70%;
-        padding: 1%;
-        margin: 2% 4%;
-        color: white;
-        background: #fec56c;
-        text-align: center;
-    }
-}
-
-/*--- Cuadro de selct ---*/
-        
-
-/*--- @media ---*/
-@media screen and (max-width:768px){
-    h1{font-size: 30px; margin-top: 10%;}
-    #home-sec{
-        .submit, .form-group, .form{
-        width: 95%;
-        }
-    }
-}
+@import "partials/_variables";
+@import "partials/_menu";
+@import "partials/_datos";
+@import "partials/_media";
+    
