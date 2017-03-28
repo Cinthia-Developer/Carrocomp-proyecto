@@ -11,13 +11,15 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
-    
-	<!--REQUIRED STYLE SHEETS-->
+    <!--REQUIRED STYLE SHEETS-->
 	<link rel="stylesheet" href="src/css/style.css">
+	
 </head>
 <body onload="init()">
+  
+   <!-- El mapa --->
     <div id="map"></div>
-    
+    <!-- El menú --->
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container"> 
             <div class="row">
@@ -28,12 +30,30 @@
                     <span data-toggle="tooltip" data-placement="bottom" title="Carrocomp! La nueva forma de moverte en la ciudad. Con carrocomp! puedes compartir tu viaje con amigos y cobrar el costo equitativamente."><img class="img-responsive" width="40px" src="src/img/informacion.png" alt="icono de información"></span>
                 </div><!--cierre de icono-->
             </div> <!--cierre de row-->  
-        </div>
+        </div><!--cierre de container-->
 	</div><!--END NAV SECTION -->
 	
 	<div id="home-sec">   
-		<div class="container"  >
-		</div>
+		<div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form">
+                            <label for="">ORIGEN</label><br>
+                            <div class="form-group">
+                                <select class="form-control" placeholder="Seleccione">
+                                    <option>Seleccione</option>
+                                </select>
+                            </div>
+                            <label for="">DESTINO</label><br>
+                            <div class="form-group">
+                                <select class="form-control" placeholder="Seleccione">
+                                    <option>Seleccione</option>
+                                </select>
+                            </div>
+                    </div><!--cierre de form-->
+                    <div class="submit">BUSCAR</div>
+                </div><!--cierre de col-md-6-->
+            </div><!--cierre de row-->
 	</div><!--END HOME SECTION-->  
 	
 	<section id="info">

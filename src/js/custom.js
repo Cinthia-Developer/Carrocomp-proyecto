@@ -1,6 +1,7 @@
 //---- Función Init ----
 function init(){
     initMap();
+    createOptions();
 }
 //---- Función del mapa ----
 function initMap() {
@@ -10,3 +11,14 @@ function initMap() {
         zoom: 10
   });
 }
+//---- Dibujo de opciones ----
+function createOptions(){
+    var ciudades = get_regiones();
+    var lista = $("select");
+    for(var i in ciudades){
+        var html= '<option>' + ciudades[i].name + '</option>' 
+        
+        lista.append(html); 
+    }
+}
+
