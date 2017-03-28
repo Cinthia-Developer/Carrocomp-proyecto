@@ -21,4 +21,24 @@ function createOptions(){
         lista.append(html); 
     }
 }
+//-- Funcion para validar el email (nombre@gmail.com):
+function validateOrigen(){
+    var origen = $(".origen").val();
+    if(origen != 0)
+        return true;
+}
+//-- Funcion para validar el email (nombre@gmail.com):
+function validateDestino(){
+    var destino = $(".destino").val();
+    if(destino != 0)
+        return true;
+}
+//--Funcion para validar el boton:
+function validToo(){
+    if (validateOrigen()==true && validateDestino()==true){
+        alert("todo esta bien");
+    }
+}
+$(".submit").click(validToo);
+
 
