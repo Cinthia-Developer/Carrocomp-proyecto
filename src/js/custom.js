@@ -67,19 +67,4 @@ function theclick(){
     localStorage.setItem("consum", consumo);
     var personas = $(this).find('.maximo').text();
     localStorage.setItem("person", personas);
-    calculo();
-}
-//---- Se obtinen datos guardados ---
-$(".pasajeros").keyup(function(){
-        this.value = (this.value + '').replace(/[^1-9]/g,"");
-});
-//------ Resultado Cálculo del costo total ----
-function calculo(){
-    var origen = localStorage.getItem("origin");
-    var destino = localStorage.getItem("dest");
-    var consumo = localStorage.getItem("consum");
-    var costoTotal = (origen - destino)*consumo;
-    $("li").append("<span class='total'>Precio Total: <small class='costoTotal'>"+ costoTotal + "</small></span>");
-    var costoGeneral = $("li").find('.costoTotal').text();
-    localStorage.setItem("general", costoGeneral);
 }
