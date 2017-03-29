@@ -3,6 +3,10 @@ function init(){
     initMap();
     createOptions();
     createVehiculos();
+    var lista = $("li"); 
+    lista.each(function(){
+        $(this).click(valor);
+    });
 }
 //---- Función del mapa ----
 function initMap() {
@@ -29,7 +33,7 @@ function createVehiculos(){
         var html= 
         '<li>' +
         '<input  class="checkbox" type="checkbox">' +
-        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo ' + vehiculos[i].max + ' Pasajeros</small></p></li>'
+        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo ' + vehiculos[i].max + ' Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
         
         lista.append(html); 
     }
@@ -55,10 +59,22 @@ function validToo(){
     }
 }
 $(".submit").click(validToo);
-//-----------------------------
+//-------- Para hacer y el siguiente cuadro ------
 function onClickInicio(){
     $("#info").show();
 }
-
-
+//------ Función para hacer click en las opciones ----
+function valor(evt){
+    localStorage.setItem("banderaImg",evt.currentTarget.id);
+    location.href="index2.html";
+}
+//------ Resultado Final ----
+function calculo(){
+    var origen = $(".origen").val();
+    var destino = $(".destino").val();
+    var consumo = localStorage.getItem(“consum”);
+    var distancia = origen - destino;
+    var costo = distancia * consumo;
+    return costo;
+}
 
