@@ -29,7 +29,7 @@ function createVehiculos(){
         var html= 
         '<li>' +
         '<input name="radio" type="radio">' +
-        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo<span class="maximo">' + vehiculos[i].max + '</span> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
+        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo<small class="maximo">' + vehiculos[i].max + '</small> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
         
         lista.append(html); 
     }
@@ -62,13 +62,30 @@ function onClickInicio(){
 }
 //------ Función para hacer click en las opciones ----
 function theclick(){
+    $(".total").remove();
     var consumo = $(this).find('.consumo').text();
     localStorage.setItem("consum", consumo);
     var personas = $(this).find('.maximo').text();
     localStorage.setItem("person", personas);
+    calculo();
 }
-//------ Resultado Final ----
+//---- Se obtinen datos guardados ---
+$(".pasajeros").keyup(function(){
+        this.value = (this.value + '').replace(/[^1-9]/g,"");
+});
+//------ Resultado Cálculo del costo total ----
 function calculo(){
+    var origen = localStorage.getItem("origin");
+    var destino = localStorage.getItem("dest");
+    var consumo = localStorage.getItem("consum");
+    var costoTotal = (origen - destino)*consumo;
+    $("li").append("<span class='total'>Precio Total: <small class='costoTotal'>"+ costoTotal + "</small></span>");
+    var costoGeneral = $("li").find('.costoTotal').text();
+    localStorage.setItem("general", costoGeneral);
+}
+function validateInput(){
     
 }
+
+
 
