@@ -2,6 +2,7 @@
 function init(){
     initMap();
     createOptions();
+    createVehiculos();
 }
 //---- Función del mapa ----
 function initMap() {
@@ -21,6 +22,18 @@ function createOptions(){
         lista.append(html); 
     }
 }
+//---- Dibujo de opciones ----
+function createVehiculos(){
+    var lista = $(".carros");
+    for(var i in vehiculos){
+        var html= 
+        '<li>' +
+        '<input type="checkbox">' +
+        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>' + vehiculos[i].max + '</small></p></li>'
+        
+        lista.append(html); 
+    }
+} 
 //-- Funcion para obtener el valor de origen:
 function validateOrigen(){
     var origen = $(".origen").val();
@@ -36,9 +49,14 @@ function validateDestino(){
 //--Funcion para validar el boton:
 function validToo(){
     if (validateOrigen()==true && validateDestino()==true){
-        alert("todo esta bien");
+        onClickInicio();
     }
 }
 $(".submit").click(validToo);
+//-----------------------------
+function onClickInicio(){
+    $("#info").show();
+}
 
-//-- Funcion para validar el boton ----
+
+

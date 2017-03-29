@@ -2,8 +2,9 @@
 @media screen and (max-width:768px){
     h1{font-size: 30px; margin-top: 10%;}
     #home-sec{
-        .submit, .form-group, .form{
-        width: 95%;
-        }
+        @include responsive();
+    }
+    #info{
+        @include responsive();
     }
 }
