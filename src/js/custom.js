@@ -83,9 +83,3 @@ function calculo(){
     var costoGeneral = $("li").find('.costoTotal').text();
     localStorage.setItem("general", costoGeneral);
 }
-function validateInput(){
-    
-}
-
-
-
