@@ -1,10 +1,13 @@
 #info{
-    img, p{display: inline;}
+    img, p, .checkbox{display: inline; margin-left: 15px;}
     p, .pasajeros{float: right;}
     li{
         list-style: none;
         margin: 10px auto;
         height: 40px;
+    }
+    ul{
+        padding: 0
     }
     .pasajeros{
         width: 50px;

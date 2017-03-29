@@ -7,7 +7,9 @@ var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var minifyCSS = require('gulp-minify-css');
 */
-//---------- desde aqui-----
+
+
+//---------- Organización de carpetas. -----
     
 gulp.task('javascript', function(){
   return gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
@@ -24,8 +26,7 @@ gulp.task('jquery', function(){
     .pipe(gulp.dest('src/js'))
 });
 
-//------- hasta aqui ----
-
+//------- END organización de carpetas ----
 
 
 gulp.task('script', function(cb){

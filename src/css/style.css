@@ -17,7 +17,7 @@ span {
   width: 90%; }
 #home-sec .form {
   width: 70%;
-  padding: 2%;
+  padding: 3%;
   margin-left: 3%;
   background: white;
   margin-top: 80px; }
@@ -28,20 +28,25 @@ span {
   color: white;
   background: #fec56c;
   text-align: center; }
+#home-sec .km {
+  color: white; }
 
-#info img, #info p {
-  display: inline; }
+#info img, #info p, #info .checkbox {
+  display: inline;
+  margin-left: 15px; }
 #info p, #info .pasajeros {
   float: right; }
 #info li {
   list-style: none;
   margin: 10px auto;
   height: 40px; }
+#info ul {
+  padding: 0; }
 #info .pasajeros {
   width: 50px; }
 #info .form {
   width: 70%;
-  padding: 2%;
+  padding: 3%;
   margin-left: 3%;
   background: white; }
 #info .submit {

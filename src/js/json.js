@@ -2,22 +2,26 @@ var vehiculos = [
      {
          "srcImg":"src/img/moto.png",
          "name":"MOTOCICLETA",
-         "max":"Máximo 2 pasajeros"
+         "max": 2,
+         "consumo": 12
      },
      {
          "srcImg":"src/img/auto.png",
          "name":"AUTOMÓVIL",
-         "max":"Máximo 5 pasajeros"
+         "max": 5,
+         "consumo": 21
      },
      {
          "srcImg":"src/img/camioneta.png",
          "name":"MINIVAN",
-         "max":"Máximo 10 pasajeros"
+         "max": 8,
+         "consumo": 7,
      },
      {
          "srcImg":"src/img/camion.png",
          "name":"CAMIÓN",
-         "max":"Máximo 3 pasajeros"
+         "max": 3,
+         "consumo": 6
      }
 
 ]
