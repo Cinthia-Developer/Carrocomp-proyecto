@@ -15,7 +15,7 @@ var vehiculos = [
          "srcImg":"src/img/camioneta.png",
          "name":"MINIVAN",
          "max": 8,
-         "consumo": 7,
+         "consumo": 7
      },
      {
          "srcImg":"src/img/camion.png",

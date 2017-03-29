@@ -26,6 +26,13 @@ gulp.task('jquery', function(){
     .pipe(gulp.dest('src/js'))
 });
 
+gulp.task('sweetalert', function(){
+  ;gulp.src('node_modules/sweetalert/dist/sweetalert.css')
+    .pipe(gulp.dest('src/css'));
+   gulp.src('node_modules/sweetalert/dist/sweetalert.min.js')
+    .pipe(gulp.dest('src/js'));
+});
+
 //------- END organización de carpetas ----
 
 
@@ -42,4 +49,4 @@ gulp.task('images', function() {
 });
 
 
-gulp.task('default', ['images', 'style', 'script','javascript','estilo', 'jquery']);
+gulp.task('default', ['images', 'style', 'script','javascript','estilo', 'jquery', 'sweetalert']);

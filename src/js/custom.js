@@ -28,29 +28,30 @@ function createVehiculos(){
     for(var i in vehiculos){
         var html= 
         '<li>' +
-        '<input  class="checkbox" type="checkbox">' +
-        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo ' + vehiculos[i].max + ' Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
+        '<input name="radio" type="radio">' +
+        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo<span class="maximo">' + vehiculos[i].max + '</span> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
         
         lista.append(html); 
     }
+    $("li").click(theclick);
 } 
 //-- Funcion para obtener el valor de origen:
 function validateOrigen(){
     var origen = $(".origen").val();
+    localStorage.setItem("origin", origen);
     if(origen != 0)
-        console.log(origen);
-        return true;
+        return origen;
 }
 //-- Funcion para obtener el valor de destino:
 function validateDestino(){
     var destino = $(".destino").val();
+    localStorage.setItem("dest", destino);
     if(destino != 0)
-        console.log(destino);
-        return true;
+        return destino;
 }
 //--Funcion para validar el boton:
 function validToo(){
-    if (validateOrigen()==true && validateDestino()==true){
+    if (validateOrigen()!=validateDestino()){
         onClickInicio();
     }
 }
@@ -60,16 +61,14 @@ function onClickInicio(){
     $("#info").show();
 }
 //------ Función para hacer click en las opciones ----
-$("ul").click(function click(){
-    console.log("Se hizo click");
-    var consumoTotal = $(".consumo").text();
-    return consumoTotal;
-});
+function theclick(){
+    var consumo = $(this).find('.consumo').text();
+    localStorage.setItem("consum", consumo);
+    var personas = $(this).find('.maximo').text();
+    localStorage.setItem("person", personas);
+}
 //------ Resultado Final ----
 function calculo(){
-    var origen = $(".origen").val();
-    var destino = $(".destino").val();
-    var distancia = origen - destino;
-    return distancia;
+    
 }
 
