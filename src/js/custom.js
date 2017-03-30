@@ -33,9 +33,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
  }, function(response, status) {
    if (status === google.maps.DirectionsStatus.OK) {
      directionsDisplay.setDirections(response);
-   } else {
-     window.alert('Directions request failed due to ' + status);
-   }
+   } 
  });
 }
 //---- Dibujo de opciones ----
@@ -113,9 +111,3 @@ function maxPasajeros(){
         sweetAlert("El número de pasajeros excede del máximo.!");
     }
 }
-/*function nombreCiudades(){
-    var ciudadOrigen = $(".origen").text();
-localStorage.setItem("ciudadOrigen", ciudadOrigen);
-var ciudadDestino = $(".destino").text();
-localStorage.setItem("ciudadDestino", ciudadDestino);
-}*/
