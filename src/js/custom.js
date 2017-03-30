@@ -84,9 +84,8 @@ function maxPasajeros(){
         swal({
           title: "Carrocomp!",
           imageUrl: img,
-          text: "Costo por persona"
+          text: "Costo por persona " + costoPersona
         });
-        alert(costoPersona);
     }else{
         sweetAlert("El número de pasajeros excede del máximo.!");
     }
