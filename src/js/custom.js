@@ -4,8 +4,9 @@ function init(){
     createOptions();
     createVehiculos();
 }
-//---- Validación del botón -----
+//---- Validación de los botones -----
 $(".submit").click(validToo);
+$(".enviar").click(pasajeros);
 //---- Función del Mapa ----
 function initMap() {
     var map;
@@ -30,7 +31,7 @@ function createVehiculos(){
         var html= 
         '<li>' +
         '<input name="radio" type="radio">' +
-        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo<small class="maximo">' + vehiculos[i].max + '</small> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
+        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo <small class="maximo">' + vehiculos[i].max + '</small> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
         lista.append(html); 
     }
     $("li").click(theclick);
@@ -60,7 +61,7 @@ function theclick(){
     var costoGeneral = $(this).find('.costoTotal').text();
     localStorage.setItem("general", costoGeneral);
 }
-//---- Función para validar el 
+//---- Función para calcular el precio total ----
 function calculo(){
     var origenGet = localStorage.getItem("origen");
     var destinoGet = localStorage.getItem("destino");
@@ -69,4 +70,18 @@ function calculo(){
     var distancia = parseInt(origenGet) - parseInt(destinoGet);
   	var precio= distancia * parseInt(consumoGet);
     $("li").append("<span class='total'>Precio Total: <small class='costoTotal'>"+ precio + "</small></span>");
+}
+//---- Función para validar input (pasajeros) ----
+function pasajeros(){
+    var input = $(".pasajeros").val();
+    var personasGet = localStorage.getItem("personas");
+    if(input <= personasGet){
+        validateSubmit();
+    }else{
+        alert("esta mal");
+    }
+}
+//---- Fución para calcular el costo por persona ----
+function validateSubmit(){
+    alert("todo bien");
 }
