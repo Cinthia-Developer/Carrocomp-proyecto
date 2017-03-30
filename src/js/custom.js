@@ -78,7 +78,6 @@ function maxPasajeros(){
     var personasGet = localStorage.getItem("personas");
     if(input <= personasGet){
         var costoPersona = costoTotal / input;
-        sweetAlert("El precio por persona.!");
         alert(costoPersona);
     }else{
         sweetAlert("El número de pasajeros excede del máximo.!");
