@@ -57,6 +57,8 @@ function theclick(){
     localStorage.setItem("consumo", consumo);
     var personas = $(this).find('.maximo').text();
     localStorage.setItem("personas", personas);
+    var imagen = $(this).find('img').attr("src");
+    localStorage.setItem("imagen", imagen);
     calculo();
     var costoGeneral = $(this).find('.costoTotal').text();
     localStorage.setItem("general", costoGeneral);
@@ -76,9 +78,14 @@ function maxPasajeros(){
     var input = $(".pasajeros").val();
     var costoTotal = localStorage.getItem("general");
     var personasGet = localStorage.getItem("personas");
+    var img = localStorage.getItem("imagen");
     if(input <= personasGet){
         var costoPersona = costoTotal / input;
-        sweetAlert("El precio por persona.");
+        swal({
+          title: "Carrocomp!",
+          imageUrl: img,
+          text: "Costo por persona"
+        });
         alert(costoPersona);
     }else{
         sweetAlert("El número de pasajeros excede del máximo.!");
