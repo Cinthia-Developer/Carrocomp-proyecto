@@ -80,6 +80,6 @@ function maxPasajeros(){
         var costoPersona = costoTotal / input;
         alert(costoPersona);
     }else{
-        sweetAlert("El número de pasajeros excede del máximo.!");
+        alert("El número de pasajeros excede del máximo.!");
     }
 }
