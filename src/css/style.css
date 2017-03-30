@@ -41,6 +41,9 @@ span {
   list-style: none;
   margin: 10px auto;
   height: 40px; }
+#info .total {
+  position: absolute;
+  left: 50%; }
 #info .consumo {
   display: none; }
 #info ul {
