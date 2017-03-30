@@ -4,7 +4,9 @@ function init(){
     createOptions();
     createVehiculos();
 }
-//---- Función del mapa ----
+//---- Validación del botón -----
+$(".submit").click(validToo);
+//---- Función del Mapa ----
 function initMap() {
     var map;
     map = new google.maps.Map(document.getElementById('map'), {
@@ -18,11 +20,10 @@ function createOptions(){
     var lista = $("select");
     for(var i in ciudades){
         var html= '<option value="' + ciudades[i].distance + '">' + ciudades[i].name +  '</option>'
-         
-        lista.append(html); 
+         lista.append(html); 
     }
 }
-//---- Dibujo de opciones ----
+//---- Dibujo de lista de vehículos ----
 function createVehiculos(){
     var lista = $(".carros");
     for(var i in vehiculos){
@@ -30,41 +31,29 @@ function createVehiculos(){
         '<li>' +
         '<input name="radio" type="radio">' +
         '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo<small class="maximo">' + vehiculos[i].max + '</small> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
-        
         lista.append(html); 
     }
     $("li").click(theclick);
-} 
-//-- Funcion para obtener el valor de origen:
-function validateOrigen(){
-    var origen = $(".origen").val();
-    localStorage.setItem("origin", origen);
-    if(origen != 0)
-        return origen;
 }
-//-- Funcion para obtener el valor de destino:
-function validateDestino(){
-    var destino = $(".destino").val();
-    localStorage.setItem("dest", destino);
-    if(destino != 0)
-        return destino;
-}
-//--Funcion para validar el boton:
+//-- Funcion para validar el botón buscar ----
 function validToo(){
-    if (validateOrigen()!=validateDestino()){
-        onClickInicio();
+    var origen = $(".origen").val();
+    localStorage.setItem("origen", origen);
+    var destino = $(".destino").val();
+    localStorage.setItem("destino", destino);
+    if (origen != destino){
+        $("#info").show();
+        //---- Para aceptar solo números positivos ----
+        $(".pasajeros").keyup(function(){
+        this.value = (this.value + '').replace(/[^1-9]/g,"");
+        });
     }
-}
-$(".submit").click(validToo);
-//-------- Para hacer y el siguiente cuadro ------
-function onClickInicio(){
-    $("#info").show();
 }
 //------ Función para hacer click en las opciones ----
 function theclick(){
     $(".total").remove();
     var consumo = $(this).find('.consumo').text();
-    localStorage.setItem("consum", consumo);
+    localStorage.setItem("consumo", consumo);
     var personas = $(this).find('.maximo').text();
-    localStorage.setItem("person", personas);
+    localStorage.setItem("personas", personas);
 }
