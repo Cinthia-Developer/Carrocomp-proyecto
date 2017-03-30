@@ -6,7 +6,7 @@ function init(){
 }
 //---- Validación de los botones -----
 $(".submit").click(validToo);
-$(".enviar").click(pasajeros);
+$(".enviar").click(maxPasajeros);
 //---- Función del Mapa ----
 function initMap() {
     var map;
@@ -72,16 +72,15 @@ function calculo(){
     $("li").append("<span class='total'>Precio Total: <small class='costoTotal'>"+ precio + "</small></span>");
 }
 //---- Función para validar input (pasajeros) ----
-function pasajeros(){
+function maxPasajeros(){
     var input = $(".pasajeros").val();
+    var costoTotal = localStorage.getItem("general");
     var personasGet = localStorage.getItem("personas");
     if(input <= personasGet){
-        validateSubmit();
+        var costoPersona = costoTotal / input;
+        sweetAlert("El precio por persona.!");
+        alert(costoPersona);
     }else{
-        alert("esta mal");
+        sweetAlert("El número de pasajeros excede del máximo.!");
     }
-}
-//---- Fución para calcular el costo por persona ----
-function validateSubmit(){
-    alert("todo bien");
 }
