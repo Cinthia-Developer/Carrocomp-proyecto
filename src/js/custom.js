@@ -56,4 +56,17 @@ function theclick(){
     localStorage.setItem("consumo", consumo);
     var personas = $(this).find('.maximo').text();
     localStorage.setItem("personas", personas);
+    calculo();
+    var costoGeneral = $(this).find('.costoTotal').text();
+    localStorage.setItem("general", costoGeneral);
+}
+//---- Función para validar el 
+function calculo(){
+    var origenGet = localStorage.getItem("origen");
+    var destinoGet = localStorage.getItem("destino");
+    var consumoGet = localStorage.getItem("consumo");
+
+    var distancia = parseInt(origenGet) - parseInt(destinoGet);
+  	var precio= distancia * parseInt(consumoGet);
+    $("li").append("<span class='total'>Precio Total: <small class='costoTotal'>"+ precio + "</small></span>");
 }

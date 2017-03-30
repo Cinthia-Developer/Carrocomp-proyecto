@@ -23,5 +23,4 @@ var vehiculos = [
          "max": 3,
          "consumo": 6
      }
-
 ]
