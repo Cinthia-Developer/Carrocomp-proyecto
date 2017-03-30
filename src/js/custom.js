@@ -9,18 +9,41 @@ $(".submit").click(validToo);
 $(".enviar").click(maxPasajeros);
 //---- Función del Mapa ----
 function initMap() {
-    var map;
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -33.43784391048617, lng: -70.65047959999998},
-        zoom: 10
-  });
+ var directionsService = new google.maps.DirectionsService;
+ var directionsDisplay = new google.maps.DirectionsRenderer;
+ var map = new google.maps.Map(document.getElementById('map'), {
+   zoom: 2,
+   center: {lat: -33.4488897,
+   lng: -70.6692655},
+ });
+ directionsDisplay.setMap(map);
+
+ var onChangeHandler = function() {
+   calculateAndDisplayRoute(directionsService, directionsDisplay);
+ };
+ document.getElementById('start').addEventListener('change', onChangeHandler);
+ document.getElementById('end').addEventListener('change', onChangeHandler);
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+ directionsService.route({
+   origin: document.getElementById("start").value,
+   destination: document.getElementById('end').value,
+   travelMode: google.maps.TravelMode.DRIVING
+ }, function(response, status) {
+   if (status === google.maps.DirectionsStatus.OK) {
+     directionsDisplay.setDirections(response);
+   } else {
+     window.alert('Directions request failed due to ' + status);
+   }
+ });
 }
 //---- Dibujo de opciones ----
 function createOptions(){
     var ciudades = get_regiones();
     var lista = $("select");
     for(var i in ciudades){
-        var html= '<option value="' + ciudades[i].distance + '">' + ciudades[i].name +  '</option>'
+        var html= '<option value="' + ciudades[i].distance + '">' + ciudades[i].name + '</option>'
          lista.append(html); 
     }
 }
@@ -31,7 +54,7 @@ function createVehiculos(){
         var html= 
         '<li>' +
         '<input name="radio" type="radio">' +
-        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' +        vehiculos[i].name + '<br><small>Máximo <small class="maximo">' + vehiculos[i].max + '</small> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
+        '<img src="' + vehiculos[i].srcImg + '" width="50px;" class="img-responsive" alt=""><p>' + vehiculos[i].name + '<br><small>Máximo <small class="maximo">' + vehiculos[i].max + '</small> Pasajeros</small></p><span class="consumo">' + vehiculos[i].consumo + '</li>'
         lista.append(html); 
     }
     $("li").click(theclick);
@@ -90,3 +113,9 @@ function maxPasajeros(){
         sweetAlert("El número de pasajeros excede del máximo.!");
     }
 }
+/*function nombreCiudades(){
+    var ciudadOrigen = $(".origen").text();
+localStorage.setItem("ciudadOrigen", ciudadOrigen);
+var ciudadDestino = $(".destino").text();
+localStorage.setItem("ciudadDestino", ciudadDestino);
+}*/
